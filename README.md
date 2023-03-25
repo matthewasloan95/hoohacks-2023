@@ -1,2 +1,2 @@
 # hoohacks-2023
-Mytien Matt Josh TJ https://www.hoohacks.io/
+Josh Matt Mytien TJ https://www.hoohacks.io/
