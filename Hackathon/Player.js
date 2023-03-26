@@ -8,31 +8,37 @@ class Player{
         this.width = 50,
         this.height = 50,
 
-        this.velocity = 0;
+        this.velocity = {
+            x:0,
+            y:0,
+        }
 
-        this.gravity = 0;
+        this.gravity = 5;
 
         this.sides = {
-            bottom: this.height + this.position.y,
+            bottom: this.position.y + this.height,
         }
 
     }
 
     draw(){
-        c.clearRect();
         c.fillStyle = 'red';
         c.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
     update(){
+        this.velocity.y += this.gravity;
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
-        this.sides.bottom = this.height + this.position.y;
-        
-        if (this.sides.bottom > canvas.height){
-            this.position.y += this.velocity.y;
+    
+        if (this.sides.bottom >= canvas.height) {
+            this.velocity.y = 0;
+            this.position.y = canvas.height - this.height;
             this.sides.bottom = this.height + this.position.y;
         }
+    
+        this.sides.bottom = this.height + this.position.y;
     }
+
     
 }
