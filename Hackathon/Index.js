@@ -69,8 +69,13 @@ let levels = {
       parsedCollisions = collisionsLevel1.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
+  
+      // Set the initial position for the player in level 1
+      player.position.x = 200
+      player.position.y = 200
+  
       if (player.currentAnimation) player.currentAnimation.isActive = false
-
+  
       background = new Sprite({
         position: {
           x: 0,
@@ -78,7 +83,7 @@ let levels = {
         },
         imageSrc: './img/backgroundLevel1.png',
       })
-
+  
       doors = [
         new Sprite({
           position: {
