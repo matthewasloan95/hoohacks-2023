@@ -7,6 +7,16 @@ canvas.height = 64*9;
 c.fillStyle = 'white';
 c.fillRect(0, 0, canvas.width, canvas.height);
 
+
+
+const backgroundLevel1 = new Sprite({
+    position: {
+        x: 0,
+        y: 0,
+    },
+    imageSrc: 'backgroundLevel1.png',
+})
+
 const player = new Player();
 
 const keys = {
@@ -25,8 +35,7 @@ const keys = {
 function animate(){
     window.requestAnimationFrame(animate);
 
-    c.fillStyle = 'white';
-    c.fillRect(0, 0, canvas.width, canvas.height);
+    backgroundLevel1.draw();
 
 
     player.velocity.x = 0;
@@ -47,38 +56,7 @@ function animate(){
 animate();
 
 
-window.addEventListener('keydown', (event) =>{
-    switch(event.key){
-        case ' ': 
-        if (player.velocity.y === 0 || player.jumped === false) {
-            player.velocity.y = -40;
-            player.jumped = true;
-        }
-        break;
 
-        case 'd': 
-            keys.d.pressed = true;
-        break;
-
-        case 'a':
-            keys.a.pressed = true;
-        break;
-        
-    }
-})
-
-window.addEventListener('keyup', (event) =>{
-    switch(event.key){
-        case 'd': 
-        keys.d.pressed = false;
-        break;
-
-        case 'a':
-            keys.a.pressed = false;
-        break;
-        
-    }
-})
 
 
 // class Sprite{
