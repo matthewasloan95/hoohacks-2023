@@ -178,24 +178,24 @@ const overlay = {
 }
 
 function animate() {
-  window.requestAnimationFrame(animate)
-
-  background.draw()
-
-  doors.forEach((door) => {
-    door.draw()
-  })
-
-  player.handleInput(keys)
-  player.draw()
-  player.update()
-
-  c.save()
-  c.globalAlpha = overlay.opacity
-  c.fillStyle = 'black'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  c.restore()
-}
+    window.requestAnimationFrame(animate)
+  
+    background.draw()
+  
+    doors.forEach((door) => {
+      door.draw()
+    })
+  
+    player.handleInput(keys)
+    player.draw()
+    player.update()
+  
+    c.save()
+    c.globalAlpha = overlay.opacity
+    c.fillStyle = 'black'
+    c.fillRect(0, 0, canvas.width, canvas.height)
+    c.restore()
+  }
 
 levels[level].init()
 animate()
