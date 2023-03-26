@@ -14,6 +14,7 @@ function animate(){
     c.fillRect(canvas.width, canvas.height);
 
     Player.draw();
+    player.update();
 
 }
 
